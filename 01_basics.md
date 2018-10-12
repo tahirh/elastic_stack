@@ -136,3 +136,29 @@ POST /catalog/product/AVrASKqgaBGmnAMj1SBe/_update
 ```
 DELETE /catalog/product/1
 ```
+
+# Create an Index
+```
+PUT /catalog
+{
+  "settings": {
+    "index": {
+      "number_of_shards": 5,
+      "number_of_replicas": 2
+    }
+  },
+  "mappings": {
+    "my_type": {
+      "properties": {
+        "f1": {
+          "type": "text"
+        },
+        "f2": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}
+```
+
